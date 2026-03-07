@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Resume Screening</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Resume Screening System</h1>
+        <p class="subtitle">Upload your resume and enter job description to get a matching score</p>
+        
+        <div class="nav-links">
+            <a href="/" class="nav-btn active">Resume Screening</a>
+            <a href="/find-jobs" class="nav-btn">Find Jobs</a>
+        </div>
+        
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        
+        <form action="/analyze" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="resume">Upload Resume (PDF or DOCX):</label>
+                <input type="file" id="resume" name="resume" accept=".pdf,.docx" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="job_description">Job Description:</label>
+                <textarea id="job_description" name="job_description" rows="10" placeholder="Enter the job description here..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Analyze Resume</button>
+        </form>
+    </div>
+</body>
+</html>

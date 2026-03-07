@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+.container.wide {
+    max-width: 900px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #667eea;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.error {
+    background: #fee;
+    color: #c33;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 4px solid #c33;
+}
+
+.result-card {
+    text-align: center;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.result-card h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.score {
+    font-size: 72px;
+    font-weight: bold;
+    color: #667eea;
+    margin: 20px 0;
+}
+
+.status {
+    font-size: 18px;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.status.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.moderate {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status.low {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.poor {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.filename {
+    color: #666;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .score {
+        font-size: 48px;
+    }
+    
+    .status {
+        font-size: 16px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    background: #e0e0e0;
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Job Cards */
+.job-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.job-header h3 {
+    color: #333;
+    margin: 0;
+}
+
+.match-badge {
+    background: #667eea;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.job-details {
+    margin-bottom: 15px;
+}
+
+.job-details p {
+    margin: 8px 0;
+    color: #555;
+}
+
+/* Skills */
+.skills-section {
+    background: #f0f4ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.skills-section h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: #667eea;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+}
+
+.matched-skill {
+    background: #d4edda;
+    color: #155724;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 2px;
+}
+
+/* Portal Links */
+.portal-links {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.portal-links h4 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.portal-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.portal-btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    transition: transform 0.2s;
+}
+
+.portal-btn:hover {
+    transform: translateY(-2px);
+}
+
+.portal-btn.naukri {
+    background: #4a90e2;
+}
+
+.portal-btn.linkedin {
+    background: #0077b5;
+}
+
+.portal-btn.indeed {
+    background: #2164f3;
+}
+
+.portal-btn.apna {
+    background: #ff6b35;
+}
+
+.portal-btn.foundit {
+    background: #e91e63;
+}
+
+/* Info Box */
+.info-box {
+    background: #f0f4ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.info-box h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-box li {
+    padding: 8px 0;
+    color: #555;
+}
+
+.hint {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.no-jobs {
+    text-align: center;
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-buttons .btn {
+    flex: 1;
+}
+
+.btn.secondary {
+    background: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .portal-buttons {
+        flex-direction: column;
+    }
+    
+    .portal-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .match-badge {
+        margin-top: 10px;
+    }
+}

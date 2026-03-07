@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs - Smart Resume Screening</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Find Matching Jobs</h1>
+        <p class="subtitle">Upload your resume to discover jobs that match your skills</p>
+        
+        <div class="nav-links">
+            <a href="/" class="nav-btn">Resume Screening</a>
+            <a href="/find-jobs" class="nav-btn active">Find Jobs</a>
+        </div>
+        
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        
+        <form action="/find-jobs" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="resume">Upload Your Resume (PDF or DOCX):</label>
+                <input type="file" id="resume" name="resume" accept=".pdf,.docx" required>
+                <p class="hint">We'll analyze your resume and find matching jobs from top portals</p>
+            </div>
+            
+            <button type="submit" class="btn">Find Matching Jobs</button>
+        </form>
+        
+        <div class="info-box">
+            <h3>How it works:</h3>
+            <ul>
+                <li>📄 Upload your resume</li>
+                <li>🤖 AI extracts your skills automatically</li>
+                <li>🎯 Matches you with relevant jobs</li>
+                <li>🔗 Get direct links to apply on Naukri, LinkedIn, Indeed, Apna & more</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
