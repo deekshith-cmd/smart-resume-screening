@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matches - Smart Resume Screening</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container wide">
+        <h1>🎯 Your Job Matches</h1>
+        <p class="subtitle">Based on your resume: {{ filename }}</p>
+        
+        <div class="skills-section">
+            <h3>📌 Your Skills:</h3>
+            <div class="skills-tags">
+                {% for skill in skills %}
+                <span class="skill-tag">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        
+        {% if jobs %}
+        <h2>Top {{ jobs|length }} Matching Jobs:</h2>
+        
+        {% for job in jobs %}
+        <div class="job-card">
+            <div class="job-header">
+                <h3>{{ job.title }}</h3>
+                <span class="match-badge">{{ job.match_score }}% Match</span>
+            </div>
+            
+            <div class="job-details">
+                <p><strong>🏢 Company:</strong> {{ job.company }}</p>
+                <p><strong>📍 Location:</strong> {{ job.location }}</p>
+                <p><strong>📝 Description:</strong> {{ job.description }}</p>
+                <p><strong>✅ Matched Skills:</strong> 
+                    {% for skill in job.matched_skills %}
+                    <span class="matched-skill">{{ skill }}</span>
+                    {% endfor %}
+                </p>
+            </div>
+            
+            <div class="portal-links">
+                <h4>Apply on:</h4>
+                <div class="portal-buttons">
+                    <a href="{{ job.portal_links.naukri }}" target="_blank" class="portal-btn naukri">
+                        <span>Naukri.com</span>
+                    </a>
+                    <a href="{{ job.portal_links.linkedin }}" target="_blank" class="portal-btn linkedin">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="{{ job.portal_links.indeed }}" target="_blank" class="portal-btn indeed">
+                        <span>Indeed</span>
+                    </a>
+                    <a href="{{ job.portal_links.apna }}" target="_blank" class="portal-btn apna">
+                        <span>Apna</span>
+                    </a>
+                    <a href="{{ job.portal_links.foundit }}" target="_blank" class="portal-btn foundit">
+                        <span>Foundit</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+        {% else %}
+        <div class="no-jobs">
+            <p>😔 No matching jobs found. Try updating your resume with more skills!</p>
+        </div>
+        {% endif %}
+        
+        <div class="action-buttons">
+            <a href="/find-jobs" class="btn">Upload Another Resume</a>
+            <a href="/" class="btn secondary">Resume Screening</a>
+        </div>
+    </div>
+</body>
+</html>

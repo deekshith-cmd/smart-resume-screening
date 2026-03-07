@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Analysis Result</h1>
+        
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        
+        <div class="result-card">
+            <h2>Matching Score</h2>
+            <div class="score">{{ score }}%</div>
+            
+            {% if score >= 70 %}
+            <p class="status success">Excellent Match! This candidate is highly suitable for the position.</p>
+            {% elif score >= 50 %}
+            <p class="status moderate">Good Match! This candidate meets many requirements.</p>
+            {% elif score >= 30 %}
+            <p class="status low">Fair Match! This candidate meets some requirements.</p>
+            {% else %}
+            <p class="status poor">Low Match! This candidate may not be suitable for this position.</p>
+            {% endif %}
+            
+            <p class="filename">Resume: {{ filename }}</p>
+        </div>
+        
+        <a href="/" class="btn">Analyze Another Resume</a>
+    </div>
+</body>
+</html>
